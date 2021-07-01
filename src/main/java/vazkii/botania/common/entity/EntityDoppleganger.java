@@ -16,7 +16,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BeaconBlockEntity;
+import net.minecraft.block.RespawnAnchorBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MovingSoundInstance;
 import net.minecraft.client.util.Rect2i;
@@ -148,7 +148,7 @@ public class EntityDoppleganger extends MobEntity {
 
 	public static boolean spawn(PlayerEntity player, ItemStack stack, World world, BlockPos pos, boolean hard) {
 		//initial checks
-		if (!(world.getBlockEntity(pos) instanceof BeaconBlockEntity) ||
+		if (!(world.getBlockEntity(pos) instanceof RespawnAnchorBlock) ||
 				!isTruePlayer(player) ||
 				countGaiaGuardiansAround(world, pos) > 0) {
 			return false;
