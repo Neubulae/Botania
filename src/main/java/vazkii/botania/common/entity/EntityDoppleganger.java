@@ -148,7 +148,7 @@ public class EntityDoppleganger extends MobEntity {
 
 	public static boolean spawn(PlayerEntity player, ItemStack stack, World world, BlockPos pos, boolean hard) {
 		//initial checks
-		if (!(world.getBlockEntity(pos) instanceof RespawnAnchorBlock) ||
+		if (!(world.getBlockState(pos).getBlock() instanceof RespawnAnchorBlock) ||
 				!isTruePlayer(player) ||
 				countGaiaGuardiansAround(world, pos) > 0) {
 			return false;
