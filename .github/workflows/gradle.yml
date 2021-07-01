@@ -20,3 +20,8 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('build.gradle') }}
     - name: Build with Gradle
       run: ./gradlew pmdMain spotlessJavaCheck build --no-daemon --max-workers 1
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: build-artifacts
+        path: build/libs
