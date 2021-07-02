@@ -1,10 +1,8 @@
 plugins {
     id 'fabric-loom' version '0.5-SNAPSHOT'
     id 'maven-publish'
-    id "com.diffplug.spotless" version "5.7.0"
 }
 
-apply plugin: 'pmd'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
