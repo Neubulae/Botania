@@ -149,29 +149,6 @@ dependencies {
     }
 }
 
-spotless {
-    enforceCheck = false // workaround around jenkins having wrong line endings in some files
-                         // we explicitly check in github actions builds
-    java {
-        indentWithTabs()
-        licenseHeaderFile('spotless/license_template.txt')
-        eclipse().configFile 'spotless/eclipseformat.xml'
-        removeUnusedImports()
-        importOrderFile 'spotless/eclipse.importorder'
-    }
-}
-
-pmd {
-    toolVersion '6.22.0'
-    incrementalAnalysis.set(true)
-    ruleSets.clear()
-    ruleSetFiles = files("spotless/pmd-ruleset.xml")
-}
-
-task checkSyntax (group: "verification") {
-    dependsOn spotlessJavaCheck, pmdMain
-}
-
 jar {
     manifest {
         attributes(["Specification-Title": "botania",
